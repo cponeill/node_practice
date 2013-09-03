@@ -6,9 +6,8 @@ function start(route, handle) {
         var pathname = url.parse(request.url).pathname;
         console.log("Let's keep it going with " + pathname);
 
-        route(handle, pathname);
-
         response.writeHead(200, {"Content-Type": "text/plain"});
+        var content = route(handle, pathname);
         response.write("Hello World and all that Jazz!");
         response.end();
     }
